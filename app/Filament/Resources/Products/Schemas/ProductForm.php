@@ -80,11 +80,13 @@ class ProductForm
 
                         Tab::make('Images')
                             ->schema([
-                                FileUpload::make('images')
+                                FileUpload::make('gallery')
                                     ->image()
                                     ->multiple()
                                     ->directory('products')
-                                    ->reorderable(),
+                                    ->disk('public')
+                                    ->reorderable()
+                                    ->columnSpanFull(),
                             ]),
 
                         Tab::make('Attributes')
